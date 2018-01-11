@@ -77,7 +77,6 @@ public class Test {
 			}
 			param.setSourceRegion(rect);
 			BufferedImage bi = reader.read(0, param);
-
 			ByteArrayOutputStream bt = new ByteArrayOutputStream();
 			ImageIO.write(bi, "jpg", bt);
 			byte[] ba = bt.toByteArray();

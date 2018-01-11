@@ -8,6 +8,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        String s = "123456/8721312";
+        System.out.println(s.replaceAll("(" + "123456" + "/)?"+"8721312$", ""));
     }
 }

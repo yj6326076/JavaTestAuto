@@ -76,7 +76,7 @@ public class HttpModel {
 		HttpGet httpget = new HttpGet(
 				"https://kyfw.12306.cn/passport/captcha/captcha-image?login_site=E&module=login&rand=sjrand&"
 						+ Math.random());
-		httpget.setHeader("Content-Type", "application/json; charset=UTF-8");
+		httpget.setHeader("Referer", "https://kyfw.12306.cn/otn/login/init");
 		httpget.setHeader("User-Agent",
 				"Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36");
 
