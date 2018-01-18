@@ -66,12 +66,10 @@ public class BaiduTest {
 	}
 	
 	public static String getImagePath(String respon) {
-		String test = "{\"errno\":0,\"url\":\"http://g.hiphotos.baidu.com/image/%70%69%63/item/ac4bd11373f082027c941ad240fbfbedaa641bdc.jpg\",\"querySign\":\"3421061202,4277027924\",\"simid\":\"0,0\"}";
-		
 		Gson gs = new Gson();
-		HashMap<String, String> rs = gs.fromJson(test,new TypeToken<HashMap<String, String>>(){}.getType());
+		HashMap<String, String> rs = gs.fromJson(respon,new TypeToken<HashMap<String, String>>(){}.getType());
 		System.out.println(rs.get("url"));
-		return null;
+		return rs.get("url");
 	}
 	
 	public static String uploadImage(String path) {
