@@ -1,5 +1,4 @@
 import com.yj.testdemo.TestFrameworkApplication;
-import io.reactivex.Flowable;
 import io.reactivex.Observable;
 import io.reactivex.Scheduler;
 import io.reactivex.schedulers.Schedulers;
@@ -8,7 +7,6 @@ import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,6 +15,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootTest(classes = TestFrameworkApplication.class)
 @RunWith(SpringRunner.class)
@@ -24,9 +24,6 @@ import java.io.IOException;
 public class SimpleTest {
     @Resource
     private TaskExecutor taskExecutor;
-
-    @Resource
-    private PoolingHttpClientConnectionManager clientConnectionManager;
 
     private CloseableHttpClient closeableHttpClient;
     @Test

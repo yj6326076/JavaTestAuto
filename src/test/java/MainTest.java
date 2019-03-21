@@ -1,40 +1,27 @@
-import io.reactivex.Observable;
-import io.reactivex.schedulers.Schedulers;
-import org.apache.http.client.methods.CloseableHttpResponse;
+import com.yj.testdemo.model.http.HttpCallback;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.impl.nio.client.CloseableHttpAsyncClient;
+import org.apache.http.impl.nio.client.HttpAsyncClients;
 
 import java.io.IOException;
+import java.util.concurrent.CountDownLatch;
 
 public class MainTest {
-    public static void main(String[] args) throws InterruptedException {
-        int i = 50;
-        Observable.create(
-                observableEmitter -> {
-                    for (int i1 = 1; i1 <= i; i1++) {
-                        http(i1);
-                        if(i1%5==0){
-                            observableEmitter.onNext(i1);
-                        }
-                        if (i1%21==0){
-                            observableEmitter.onError(new Throwable("error"));
-                            return;
-                        }
-                    }
-                }
-        )
-                .subscribeOn(Schedulers.io())
-                .subscribe(System.out::println, Throwable::printStackTrace);
-        Thread.sleep(1000*100);
-    }
-
-    public static void http(Integer count) throws IOException {
-        System.out.println("doing:"+count);
-        CloseableHttpClient c = HttpClientBuilder.create().build();
-        HttpGet get = new HttpGet("http://www.pydyun.com");
-        CloseableHttpResponse r = c.execute(get);
-        System.out.println(r.getStatusLine().getStatusCode());
-        c.close();
+    public static void main(String[] args) {
+        CloseableHttpAsyncClient client = HttpAsyncClients.createDefault();
+        client.start();
+        HttpCallback callback = new HttpCallback("http://www.baidu.com");
+        final CountDownLatch latch = new CountDownLatch(1);
+        for(int i=0;i<100;i++) {
+            client.execute(new HttpGet("http://www.baidu.com"), callback);
+        }
+        try {
+            latch.await();
+            client.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
