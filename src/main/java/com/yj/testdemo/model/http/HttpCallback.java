@@ -14,9 +14,6 @@ public class HttpCallback implements FutureCallback<HttpResponse> {
         super();
         this.url = url;
     }
-    public String getUrl() {
-        return url;
-    }
 
     @Override
     public void completed(HttpResponse result) {
