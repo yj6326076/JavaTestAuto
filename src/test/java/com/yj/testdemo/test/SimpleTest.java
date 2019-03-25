@@ -1,3 +1,5 @@
+package com.yj.testdemo.test;
+
 import com.yj.testdemo.TestFrameworkApplication;
 import io.reactivex.Observable;
 import io.reactivex.Scheduler;
