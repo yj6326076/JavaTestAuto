@@ -5,10 +5,11 @@ import lombok.Data;
 import java.util.List;
 
 /**
- * @author exyangjun003
+ * 执行用例
+ * @author yangjun
  */
 @Data
-public class TestCase implements TestInterface {
+public class TestCase implements TestCaseInterface {
 
     private List<TestStep> environmentSetList;
     private List<TestStep> preTestList;

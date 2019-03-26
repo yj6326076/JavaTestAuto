@@ -8,7 +8,7 @@ import java.util.List;
  * @author exyangjun003
  */
 @Data
-public class TestSuit implements TestInterface {
+public class TestSuit implements TestCaseInterface {
     private List<TestStep> environmentSetList;
     private List<TestStep> preTestList;
     private List<TestCase> testCaseList;

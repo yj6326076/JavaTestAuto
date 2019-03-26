@@ -10,13 +10,9 @@ import java.util.List;
  */
 @Data
 public class TestStep implements TestInterface{
-    private List<TestStep> environmentSetList;
-    private List<TestStep> preTestList;
-    private List<TestStep> testCaseList;
-    private List<TestStep> afterTestList;
-    private List<TestStep> environmentDestroyList;
+
     @Override
-    public boolean duringTest() {
-        return doTestList(testCaseList);
+    public boolean execute(){
+        return true;
     }
 }
