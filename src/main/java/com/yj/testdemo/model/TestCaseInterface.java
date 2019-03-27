@@ -13,7 +13,7 @@ public interface TestCaseInterface extends TestInterface {
      * @return
      * 返回环境设置步骤
      */
-    List<? extends TestCaseInterface> getEnvironmentSetList();
+    List<? extends TestInterface> getEnvironmentSetList();
 
 
     /**
@@ -21,20 +21,20 @@ public interface TestCaseInterface extends TestInterface {
      * @return
      * 返回测试前步骤
      */
-    List<? extends TestCaseInterface> getPreTestList();
+    List<? extends TestInterface> getPreTestList();
 
     /**
      * 获取测试后步骤内容
      * @return
      * 返回测试后步骤
      */
-    List<? extends TestCaseInterface> getAfterTestList();
+    List<? extends TestInterface> getAfterTestList();
     /**
      * 获取环境摧毁步骤内容
      * @return
      * 返回环境摧毁结果
      */
-    List<? extends TestCaseInterface> getEnvironmentDestroyList();
+    List<? extends TestInterface> getEnvironmentDestroyList();
 
     /**
      * 环境配置

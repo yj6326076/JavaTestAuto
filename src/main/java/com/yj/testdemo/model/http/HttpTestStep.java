@@ -1,9 +1,9 @@
 package com.yj.testdemo.model.http;
 
-import com.yj.testdemo.model.TestStep;
+import com.yj.testdemo.model.TestCase;
 import org.apache.http.client.methods.*;
 
-public class HttpTestStep extends TestStep {
+public class HttpTestStep extends TestCase {
     private String method;
     private HttpUriRequest request;
     @Override

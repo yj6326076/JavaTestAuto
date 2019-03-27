@@ -11,11 +11,11 @@ import java.util.List;
 @Data
 public class TestCase implements TestCaseInterface {
 
-    private List<TestStep> environmentSetList;
-    private List<TestStep> preTestList;
-    private List<TestStep> testStepList ;
-    private List<TestStep> afterTestList;
-    private List<TestStep> environmentDestroyList;
+    private List<? extends TestStep> environmentSetList;
+    private List<? extends TestStep> preTestList;
+    private List<? extends TestStep> testStepList ;
+    private List<? extends TestStep> afterTestList;
+    private List<? extends TestStep> environmentDestroyList;
 
     @Override
     public boolean duringTest() {
