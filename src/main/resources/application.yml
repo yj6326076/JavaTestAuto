@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://192.168.0.107:3306:autoTest
+      password: Yj6326076
+      username: root
+      name: mysqlDb1
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+    show-sql: true
+  application:
+    name: autoTest
+logging:
+  level:
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql:
+              BasicBinder: trace
+server:
+  port: 8090

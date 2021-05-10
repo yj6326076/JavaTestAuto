@@ -1,0 +1,7 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.little.boy.auto'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'

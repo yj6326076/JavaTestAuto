@@ -1,0 +1,11 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.little.boy.auto'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+dependencies {
+    implementation group: 'com.alibaba', name: 'easyexcel', version: '2.2.6' // 阿里巴巴excel工具
+}
